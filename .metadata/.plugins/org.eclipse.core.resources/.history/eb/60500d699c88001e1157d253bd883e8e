@@ -1,0 +1,16 @@
+package services;
+
+import java.util.List;
+
+import entities.Product;
+
+public class ProductService {
+	
+	public Double filteredSum(List<Product> list) {
+		double sum = 0.0;
+		
+		return sum;
+	}
+	
+	
+}

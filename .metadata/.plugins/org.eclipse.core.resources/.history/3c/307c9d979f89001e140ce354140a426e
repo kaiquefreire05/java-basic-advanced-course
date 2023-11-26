@@ -1,0 +1,20 @@
+package entities;
+
+public class Employee {
+	
+	private String name;
+	private String email;
+	private Double price;
+	
+	// construtores
+	public Employee() {}
+
+	public Employee(String name, String email, Double price) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.price = price;
+	}
+	
+	
+}

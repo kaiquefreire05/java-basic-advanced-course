@@ -1,0 +1,66 @@
+package application;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+import entities.Product;
+
+public class Program {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+		// C:\\Users\\kaiqu\\OneDrive\\Documentos\\in.txt
+		System.out.print("Enter full file path: ");
+		String path = sc.nextLine();
+
+		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+
+			List<Product> list = new ArrayList<>();
+
+			String line = br.readLine();
+			while (line != null) {
+				String[] fields = line.split(","); // criando uma array que vai receber os fields
+				list.add(new Product(fields[0], Double.parseDouble(fields[1]))); // usando o parse double porque ele vai
+																					// retirar uma string e não um valor
+				line = br.readLine(); // lendo a próxima linha depois de adicionar o produto
+			}
+			
+			// fazendo a média de preços
+			
+			double avg = list.stream()
+					.map(p -> p.getPrice()) // pegando o valor de cada posição de preço da lista que virou stream
+					.reduce(0.0, (x, y) -> x + y) // somando as variáveis
+					/ list.size(); // dividindo pelo tamanho da lista para fazer a média
+			
+			System.out.println("Avg price: " + String.format("%.2f", avg));
+			
+			// mostrando os nomes na tela
+			
+			Comparator<String> comp = (s1, s2) -> s1.toUpperCase().compareTo(s2.toUpperCase()); // criando um comparador de string
+			
+			List<String> names = list.stream() // transformando em stream
+					.filter(p -> p.getPrice() < avg) // se o p for menor que a media 
+					.map(p -> p.getName()) // ele vai mostrar o nome
+					.sorted(comp.reversed()) // vai organizar a lista em ordrem decrescente, por isso tem que usar o reversed().
+					.collect(Collectors.toList()); // transformando a stream em lista
+			
+			names.forEach(System.out::println); // printando os valores da lista de forma mais facil
+
+		} catch (IOException e) {
+			// TODO: handle exception
+			System.out.println("Error: " + e.getLocalizedMessage());
+		}
+	}
+
+}

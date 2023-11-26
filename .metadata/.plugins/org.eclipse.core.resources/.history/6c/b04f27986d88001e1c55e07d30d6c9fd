@@ -1,0 +1,45 @@
+package application;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+import entities.Product;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Locale.setDefault(Locale.US);
+		List<Product> list = new ArrayList<>(); // lista original de produtos
+		
+		list.add(new Product("TV", 900.00));
+		list.add(new Product("Mouse", 50.00));
+		list.add(new Product("Tablet", 350.50));
+		list.add(new Product("HD Case", 80.90));
+		
+		/*
+		map, aplica uma função a todos os elementos de uma stream
+		stream,  refere-se a uma sequência de elementos que você pode processar 
+		de maneira sequencial e, muitas vezes, de forma paralela.
+		.collect(Collectors.toList(), transforma a stream novamente em lista 
+		*/
+		
+		//List<String> names = list.stream().map(Product::staticUpperCaseName).collect(Collectors.toList());
+		//List<String> names = list.stream().map(Product::nonStaticUpperCaseName).collect(Collectors.toList());
+		
+		List<String> names = list.stream().map(func).collect(Collectors.toList());
+		Function<Product, String> func = p -> p.getName().toUpperCase();
+		
+		names.forEach(System.out::println);
+		
+		
+		
+		
+		
+		
+	} // fechamento do método
+
+} // fechamento da classe

@@ -1,0 +1,8 @@
+package entities;
+
+public class logEntry {
+	
+	private String username;
+	private Date moment;
+	
+}

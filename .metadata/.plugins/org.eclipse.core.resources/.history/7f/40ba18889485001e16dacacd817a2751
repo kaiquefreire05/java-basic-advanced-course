@@ -1,0 +1,39 @@
+package application;
+
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Map<String, String> cookies = new TreeMap<>();
+		
+		cookies.put("username", "Maria");
+		cookies.put("email", "maria@gmail.com");
+		cookies.put("phone", "99711122");
+		
+		// cookies.remove("phone"); // remove um elemento pela key
+		cookies.put("phone", "993864486"); // sobrescreve o valor do Map
+		
+		System.out.println("Contains 'phone' key: " + cookies.containsKey("phone")); // verificando se existe essa key no map
+		if (cookies.containsKey("phone")) { // se existir a key 'phone' ele vai printar o value
+			System.out.println("Phone number: " + cookies.get("phone"));
+		} // fechamento do if
+		System.out.println();
+		
+		cookies.remove("email"); // removendo a key email
+		System.out.println("Contains 'email' key: " + cookies.containsKey("email"));
+		if (cookies.containsKey("email")) { // se existir a key 'email' ele vai printar o value
+			System.out.println("Email: " + cookies.get("email"));
+		} // fechamento do if
+		System.out.println();
+		
+		System.out.println("ALL COOKIES: ");
+		for (String key : cookies.keySet()) {
+			System.out.println(key + ": " + cookies.get(key));
+		} // fechamento do for
+		
+	}
+
+}

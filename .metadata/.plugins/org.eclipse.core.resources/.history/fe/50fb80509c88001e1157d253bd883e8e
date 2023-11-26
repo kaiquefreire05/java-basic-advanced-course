@@ -1,0 +1,10 @@
+package services;
+
+public class ProductService {
+	
+	public Double filteredSum(List<Product> list) {
+		
+	}
+	
+	
+}

@@ -1,0 +1,16 @@
+package entities;
+
+public class Product {
+	
+	private String name;
+	private double price;
+	
+	// construtores
+	public Product(String name, double price) {
+		super();
+		this.name = name;
+		this.price = price;
+	}
+	
+	
+}	

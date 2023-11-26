@@ -1,0 +1,23 @@
+package application;
+
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Map<String, String> cookies = new TreeMap<>();
+		
+		cookies.put("username", "Maria");
+		cookies.put("email", "maria@gmail.com");
+		cookies.put("phone", "99711122");
+		
+		// cookies.remove("phone"); // remove um elemento pela key
+		
+		for (String key : cookies.keySet()) {
+			
+		}
+	}
+
+}

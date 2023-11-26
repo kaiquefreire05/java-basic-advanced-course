@@ -1,0 +1,24 @@
+package application;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// C:\\Users\\kaiqu\\OneDrive\\Documentos\\in.txt
+		
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
+		try (BufferedReader br = new BufferedReader(new FileReader())){
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+
+}

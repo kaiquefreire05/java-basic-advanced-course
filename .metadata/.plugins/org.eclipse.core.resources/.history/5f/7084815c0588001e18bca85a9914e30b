@@ -1,0 +1,7 @@
+package util;
+
+import java.util.function.Function;
+
+public class UpperCaseName implements Function<Product, String>{
+	
+}	
